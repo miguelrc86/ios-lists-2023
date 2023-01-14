@@ -23,7 +23,6 @@ final class CellContentView: UIView {
         let imageView = UIImageView(image: UIImage(systemName: "pencil.circle"))
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.tintColor = .red
         return imageView
     }()
 
@@ -44,11 +43,10 @@ final class CellContentView: UIView {
     
     // MARK: - Initializers
 
-    init(text: String) {
+    init() {
         super.init(frame: .zero)
         setupUI()
         setupConstraints()
-        configure(model: text)
     }
 
     required init?(coder: NSCoder) {
@@ -80,8 +78,15 @@ final class CellContentView: UIView {
 
     // MARK: - Configuration
 
-    private func configure(model: String) {
-        headlineLabel.text = model
+    func configure(with model: CellModel) {
+        headlineLabel.text = model.description
+        symbolImageView.tintColor = model.iconColor
+    }
+
+    // MARK: - Reuse
+
+    func reset() {
+        headlineLabel.text = nil
     }
 
 }

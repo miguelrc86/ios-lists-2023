@@ -66,7 +66,9 @@ final class ListViewController: UIViewController {
     private func setupPublishers() {
         cancellable = segmentedControl.publisher(for: \.selectedSegmentIndex)
             .sink { [weak self] index in
-                self?.swapToListType(ListFlavor.type(at: index))
+                if let type = ListFlavor.type(at: index) {
+                    self?.swapToListType(type)
+                }
             }
     }
 
@@ -80,6 +82,8 @@ final class ListViewController: UIViewController {
             updateChildViewController(viewController: stackVC)
             navigationItem.prompt = "- Stacked List -"
         case .ancientTableView:
+            let ancientTVC = AncientTableViewController(viewModel: viewModel)
+            updateChildViewController(viewController: ancientTVC)
             navigationItem.prompt = "- Standard TableView + Default DataSource -"
         case .diffableDataSourceTableView:
             navigationItem.prompt = "- Standard TableView + Diffable DataSource -"

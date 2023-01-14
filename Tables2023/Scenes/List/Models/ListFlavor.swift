@@ -20,8 +20,8 @@ enum ListFlavor: Int, CaseIterable {
         allCases.map { $0.rawValue.description }
     }
 
-    static func type(at index: Int) -> Self {
-        guard 1...allCases.count ~= index else { return stackedList }
+    static func type(at index: Int) -> Self? {
+        guard 0...allCases.count ~= index else { return nil }
         return allCases[index]
     }
 

@@ -34,9 +34,7 @@ final class StackedListViewController: UIViewController {
 
     // MARK: - Initializers
 
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
+    init() { super.init(nibName: nil, bundle: nil) }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -76,7 +74,8 @@ final class StackedListViewController: UIViewController {
 
     func configure(with model: [String]) {
         model.forEach { headline in
-            let cellContent = CellContentView(text: headline)
+            let cellContent = CellContentView()
+            cellContent.configure(with: .init(iconColor: .red, description: headline))
             itemsStackView.addArrangedSubview(cellContent)
         }
     }

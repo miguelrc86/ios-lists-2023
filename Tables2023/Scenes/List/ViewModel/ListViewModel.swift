@@ -7,6 +7,11 @@
 
 import Foundation
 
+protocol ViewModel {
+    var numberOfRows: Int { get }
+    func item(at index: Int) -> String?
+}
+
 struct ListViewModel {
 
     let model = [
@@ -30,4 +35,17 @@ struct ListViewModel {
         "The possibility of extraterrestrial life raises questions about the nature of life itself and the potential for it to evolve in different environments.",
         "The discovery of microbial life on other planets or moons would provide evidence that life may have evolved independently in different parts of the universe."
     ]
+
+}
+
+extension ListViewModel: ViewModel {
+
+    var numberOfRows: Int {
+        model.count
+    }
+
+    func item(at index: Int) -> String? {
+        guard 0...model.count ~= index else { return nil }
+        return model[index]
+    }
 }
