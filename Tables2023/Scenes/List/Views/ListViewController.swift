@@ -30,7 +30,7 @@ final class ListViewController: UIViewController {
 
     private var cancellable: AnyCancellable?
 
-    var viewModel = ListViewModel()
+    var viewModel: ViewModel = ListViewModel()
 
     // MARK: - Life Cycle
 
@@ -78,7 +78,7 @@ final class ListViewController: UIViewController {
         switch type {
         case .stackedList:
             let stackVC = StackedListViewController()
-            stackVC.configure(with: viewModel.model)
+            stackVC.configure(with: viewModel.allItems)
             updateChildViewController(viewController: stackVC)
             navigationItem.prompt = "- Stacked List -"
         case .ancientTableView:
@@ -86,6 +86,8 @@ final class ListViewController: UIViewController {
             updateChildViewController(viewController: ancientTVC)
             navigationItem.prompt = "- Standard TableView + Default DataSource -"
         case .diffableDataSourceTableView:
+            let diffableDataSourceVC = DiffableDataSourceTableViewController(viewModel: viewModel)
+            updateChildViewController(viewController: diffableDataSourceVC)
             navigationItem.prompt = "- Standard TableView + Diffable DataSource -"
         case .uiHostingConfiguration:
             navigationItem.prompt = "- Standard TableView + UIHostingConfiguration -"

@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct CellModel {
+struct CellModel: Hashable {
     let iconColor: UIColor
     let description: String
 }

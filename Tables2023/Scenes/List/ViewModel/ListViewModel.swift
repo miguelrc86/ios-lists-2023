@@ -8,6 +8,7 @@
 import Foundation
 
 protocol ViewModel {
+    var allItems: [String] { get }
     var numberOfRows: Int { get }
     func item(at index: Int) -> String?
 }
@@ -39,6 +40,10 @@ struct ListViewModel {
 }
 
 extension ListViewModel: ViewModel {
+
+    var allItems: [String] {
+        model
+    }
 
     var numberOfRows: Int {
         model.count

@@ -70,8 +70,8 @@ final class CellContentView: UIView {
             horizontalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
             separatorView.topAnchor.constraint(equalTo: horizontalStackView.bottomAnchor, constant: 12),
             separatorView.leadingAnchor.constraint(equalTo: headlineLabel.leadingAnchor),
-            separatorView.trailingAnchor.constraint(equalTo: headlineLabel.trailingAnchor),
             separatorView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            separatorView.trailingAnchor.constraint(equalTo: headlineLabel.trailingAnchor),
             separatorView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
