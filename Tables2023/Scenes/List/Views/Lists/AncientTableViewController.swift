@@ -16,8 +16,8 @@ final class AncientTableViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         tableView.dataSource = self
-        tableView.register(ListCell.self,
-                           forCellReuseIdentifier: ListCell.reuseIdentifier)
+        tableView.register(TableListCell.self,
+                           forCellReuseIdentifier: TableListCell.reuseIdentifier)
         return tableView
     }()
 
@@ -75,7 +75,7 @@ extension AncientTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = viewModel.item(at: indexPath.row)
 
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.reuseIdentifier) as? ListCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableListCell.reuseIdentifier) as? TableListCell else {
             return .init()
         }
 

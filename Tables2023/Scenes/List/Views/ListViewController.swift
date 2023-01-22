@@ -89,10 +89,16 @@ final class ListViewController: UIViewController {
             let diffableDataSourceVC = DiffableDataSourceTableViewController(viewModel: viewModel)
             updateChildViewController(viewController: diffableDataSourceVC)
             navigationItem.prompt = "- Standard TableView + Diffable DataSource -"
+        case .collectionViewListDefaultCell:
+            let collectionListDefaultCellVC = CollectionListDefaultCellViewController(viewModel: viewModel)
+            updateChildViewController(viewController: collectionListDefaultCellVC)
+            navigationItem.prompt = "- CollectionView List | Default Cell -"
+        case .collectionViewListCustomCell:
+            let collectionListCustomCellVC = CollectionListCustomCellViewController(viewModel: viewModel)
+            updateChildViewController(viewController: collectionListCustomCellVC)
+            navigationItem.prompt = "- CollectionView List | Custom Cell -"
         case .uiHostingConfiguration:
             navigationItem.prompt = "- Standard TableView + UIHostingConfiguration -"
-        case .collectionViewList:
-            navigationItem.prompt = "- CollectionView List -"
         case .swiftUIList:
             navigationItem.prompt = "- SwiftUI List -"
         }

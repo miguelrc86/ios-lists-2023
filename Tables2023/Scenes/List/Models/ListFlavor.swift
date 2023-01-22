@@ -12,8 +12,9 @@ enum ListFlavor: Int, CaseIterable {
     case stackedList                    = 1
     case ancientTableView
     case diffableDataSourceTableView
+    case collectionViewListDefaultCell
+    case collectionViewListCustomCell
     case uiHostingConfiguration
-    case collectionViewList
     case swiftUIList
     
     static var rawValues: [String] {

@@ -1,5 +1,5 @@
 //
-//  ListCell.swift
+//  TableListCell.swift
 //  Tables2023
 //
 //  Created by Miguel Rojas Cortes on 1/9/23.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class ListCell: UITableViewCell {
+final class TableListCell: UITableViewCell {
 
     // MARK: - Properties
 
-    static let reuseIdentifier = String(describing: ListCell.self)
+    static let reuseIdentifier = String(describing: TableListCell.self)
 
     private lazy var cellContentView: CellContentView = {
         let contentView = CellContentView()

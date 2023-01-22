@@ -15,8 +15,8 @@ final class DiffableDataSourceTableViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
-        tableView.register(ListCell.self,
-                           forCellReuseIdentifier: ListCell.reuseIdentifier)
+        tableView.register(TableListCell.self,
+                           forCellReuseIdentifier: TableListCell.reuseIdentifier)
         return tableView
     }()
 
@@ -68,7 +68,7 @@ final class DiffableDataSourceTableViewController: UIViewController {
 
     private func configureDataSource() {
         dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, model in
-            let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.reuseIdentifier) as? ListCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableListCell.reuseIdentifier) as? TableListCell
             cell?.configure(model: model)
 
             return cell
