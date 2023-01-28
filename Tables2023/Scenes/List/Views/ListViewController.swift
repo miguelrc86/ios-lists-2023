@@ -84,11 +84,11 @@ final class ListViewController: UIViewController {
         case .ancientTableView:
             let ancientTVC = AncientTableViewController(viewModel: viewModel)
             updateChildViewController(viewController: ancientTVC)
-            navigationItem.prompt = "- Standard TableView + Default DataSource -"
+            navigationItem.prompt = "- Standard TableView | Default DataSource -"
         case .diffableDataSourceTableView:
             let diffableDataSourceVC = DiffableDataSourceTableViewController(viewModel: viewModel)
             updateChildViewController(viewController: diffableDataSourceVC)
-            navigationItem.prompt = "- Standard TableView + Diffable DataSource -"
+            navigationItem.prompt = "- Standard TableView | Diffable DataSource -"
         case .collectionViewListDefaultCell:
             let collectionListDefaultCellVC = CollectionListDefaultCellViewController(viewModel: viewModel)
             updateChildViewController(viewController: collectionListDefaultCellVC)
@@ -98,7 +98,9 @@ final class ListViewController: UIViewController {
             updateChildViewController(viewController: collectionListCustomCellVC)
             navigationItem.prompt = "- CollectionView List | Custom Cell -"
         case .uiHostingConfiguration:
-            navigationItem.prompt = "- Standard TableView + UIHostingConfiguration -"
+            let collectionListHostingConfigurationCellVC = CollectionListHostingConfigurationCellViewController(viewModel: viewModel)
+            updateChildViewController(viewController: collectionListHostingConfigurationCellVC)
+            navigationItem.prompt = "- CollectionView List | UIHostingConfiguration Cell -"
         case .swiftUIList:
             navigationItem.prompt = "- SwiftUI List -"
         }

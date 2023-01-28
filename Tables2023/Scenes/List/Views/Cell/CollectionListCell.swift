@@ -7,11 +7,7 @@
 
 import UIKit
 
-protocol ConfigurableCell {
-    func configure(model: CellModel)
-}
-
-final class CollectionListCell: UICollectionViewCell, ConfigurableCell {
+final class CollectionListCell: UICollectionViewCell {
 
     // MARK: - Properties
 

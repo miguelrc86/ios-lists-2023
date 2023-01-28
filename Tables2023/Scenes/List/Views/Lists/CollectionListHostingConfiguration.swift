@@ -1,13 +1,14 @@
 //
-//  CollectionListCustomCellViewController.swift
+//  CollectionListHostingConfiguration.swift
 //  Tables2023
 //
 //  Created by Miguel Rojas Cortes on 1/22/23.
 //
 
 import UIKit
+import SwiftUI
 
-final class CollectionListCustomCellViewController: UIViewController {
+final class CollectionListHostingConfigurationCellViewController: UIViewController {
 
     // MARK: - Properties
 
@@ -30,9 +31,10 @@ final class CollectionListCustomCellViewController: UIViewController {
 
     // MARK: - Cell Registration
 
-    private lazy var customCellRegistry: UICollectionView.CellRegistration<CollectionListCell, CellModel> = {
-        UICollectionView.CellRegistration<CollectionListCell, CellModel> { cell, indexPath, model in
-            cell.configure(model: model)
+    private lazy var defaultCellRegistry: UICollectionView.CellRegistration<UICollectionViewListCell, CellModel> = {
+        UICollectionView.CellRegistration<UICollectionViewListCell, CellModel> { cell, indexPath, model in
+            let hostingConfiguration = UIHostingConfiguration { Cell(model: model) }
+            cell.contentConfiguration = hostingConfiguration.margins(.all, 0)
         }
     }()
 
@@ -75,7 +77,7 @@ final class CollectionListCustomCellViewController: UIViewController {
     // MARK: - Diffable DataSource
 
     private func configureDataSource() {
-        let registeredCell = customCellRegistry
+        let registeredCell = defaultCellRegistry
 
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, model in
             collectionView.dequeueConfiguredReusableCell(using: registeredCell, for: indexPath, item: model)
@@ -85,7 +87,7 @@ final class CollectionListCustomCellViewController: UIViewController {
     private func configureSnapShot() {
         guard var snapshot = dataSource?.snapshot() else { return }
         snapshot.appendSections([SectionModel.main])
-        snapshot.appendItems(viewModel.allItems.map { .init(iconColor: .gray, description: $0) })
+        snapshot.appendItems(viewModel.allItems.map { .init(iconColor: .systemBrown, description: $0) })
 
         dataSource?.apply(snapshot)
     }
