@@ -7,18 +7,9 @@
 
 import UIKit
 
-final class DiffableDataSourceTableViewController: UIViewController {
+final class DiffableDataSourceTableViewController: UITableViewController {
 
     // MARK: - Properties
-
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.separatorStyle = .none
-        tableView.register(TableListCell.self,
-                           forCellReuseIdentifier: TableListCell.reuseIdentifier)
-        return tableView
-    }()
 
     private var viewModel: ViewModel {
         didSet {
@@ -44,7 +35,6 @@ final class DiffableDataSourceTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupLayout()
         configureDataSource()
         configureSnapShot()
     }
@@ -52,16 +42,9 @@ final class DiffableDataSourceTableViewController: UIViewController {
     // MARK: - UI Setup
 
     private func setupUI() {
-        view.addSubview(tableView)
-    }
-
-    private func setupLayout() {
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        ])
+        tableView.separatorStyle = .none
+        tableView.register(TableListCell.self,
+                           forCellReuseIdentifier: TableListCell.reuseIdentifier)
     }
 
     // MARK: - Diffable DataSource
