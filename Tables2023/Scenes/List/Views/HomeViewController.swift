@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  HomeViewController.swift
 //  Tables2023
 //
 //  Created by Miguel Rojas Cortes on 1/8/23.
@@ -9,7 +9,7 @@ import Combine
 import SwiftUI
 import UIKit
 
-final class ListViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
     // MARK: - Properties
 

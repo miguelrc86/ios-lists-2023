@@ -11,6 +11,7 @@
 		09133B182974E92800598F91 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09133B172974E92800598F91 /* SectionModel.swift */; };
 		09133B1A297C309B00598F91 /* CollectionListDefaultCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09133B19297C309B00598F91 /* CollectionListDefaultCellViewController.swift */; };
 		09133B1C297C343E00598F91 /* CollectionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09133B1B297C343E00598F91 /* CollectionListCell.swift */; };
+		0932BC2629881506007E2324 /* CollectionBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0932BC2529881506007E2324 /* CollectionBaseViewController.swift */; };
 		094D700E296B52DA00525E2B /* ListFlavor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D700D296B52DA00525E2B /* ListFlavor.swift */; };
 		094D7010296B7CEE00525E2B /* StackedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D700F296B7CEE00525E2B /* StackedListViewController.swift */; };
 		094D7012296B7F4F00525E2B /* CellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D7011296B7F4F00525E2B /* CellContentView.swift */; };
@@ -30,7 +31,7 @@
 		096F18BF297D9292004A5740 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F18BE297D9292004A5740 /* Cell.swift */; };
 		096F18C129856DDD004A5740 /* DeclarativeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F18C029856DDD004A5740 /* DeclarativeList.swift */; };
 		09FB2E39296B4B3200C8E70C /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FB2E38296B4B3200C8E70C /* ListViewModel.swift */; };
-		09FB2E3C296B4BD200C8E70C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FB2E3B296B4BD200C8E70C /* ListViewController.swift */; };
+		09FB2E3C296B4BD200C8E70C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FB2E3B296B4BD200C8E70C /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		09133B172974E92800598F91 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		09133B19297C309B00598F91 /* CollectionListDefaultCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListDefaultCellViewController.swift; sourceTree = "<group>"; };
 		09133B1B297C343E00598F91 /* CollectionListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListCell.swift; sourceTree = "<group>"; };
+		0932BC2529881506007E2324 /* CollectionBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionBaseViewController.swift; sourceTree = "<group>"; };
 		094D700D296B52DA00525E2B /* ListFlavor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFlavor.swift; sourceTree = "<group>"; };
 		094D700F296B7CEE00525E2B /* StackedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedListViewController.swift; sourceTree = "<group>"; };
 		094D7011296B7F4F00525E2B /* CellContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellContentView.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 		096F18BE297D9292004A5740 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		096F18C029856DDD004A5740 /* DeclarativeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclarativeList.swift; sourceTree = "<group>"; };
 		09FB2E38296B4B3200C8E70C /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
-		09FB2E3B296B4BD200C8E70C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		09FB2E3B296B4BD200C8E70C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0932BC24298811EE007E2324 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0932BC2529881506007E2324 /* CollectionBaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		0932BC2729881516007E2324 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				094D7015296CE5A100525E2B /* AncientTableViewController.swift */,
+				09133B152974E7CD00598F91 /* DiffableDataSourceTableViewController.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		0932BC282988152B007E2324 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				09133B19297C309B00598F91 /* CollectionListDefaultCellViewController.swift */,
+				096F18BA297D8C00004A5740 /* CollectionListCustomCellViewController.swift */,
+				096F18BC297D8E1C004A5740 /* CollectionListHostingConfiguration.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		0932BC2929881539007E2324 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				096F18C029856DDD004A5740 /* DeclarativeList.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		0932BC2A29881544007E2324 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				094D700F296B7CEE00525E2B /* StackedListViewController.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		094D701B2973618200525E2B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,13 +165,10 @@
 		094D701C2973626400525E2B /* Lists */ = {
 			isa = PBXGroup;
 			children = (
-				094D7015296CE5A100525E2B /* AncientTableViewController.swift */,
-				094D700F296B7CEE00525E2B /* StackedListViewController.swift */,
-				09133B152974E7CD00598F91 /* DiffableDataSourceTableViewController.swift */,
-				09133B19297C309B00598F91 /* CollectionListDefaultCellViewController.swift */,
-				096F18BA297D8C00004A5740 /* CollectionListCustomCellViewController.swift */,
-				096F18BC297D8E1C004A5740 /* CollectionListHostingConfiguration.swift */,
-				096F18C029856DDD004A5740 /* DeclarativeList.swift */,
+				0932BC2A29881544007E2324 /* Custom */,
+				0932BC2929881539007E2324 /* SwiftUI */,
+				0932BC282988152B007E2324 /* CollectionView */,
+				0932BC2729881516007E2324 /* TableView */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -181,9 +223,10 @@
 		09FB2E32296B44C300C8E70C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				09FB2E3B296B4BD200C8E70C /* ListViewController.swift */,
-				094D701C2973626400525E2B /* Lists */,
+				09FB2E3B296B4BD200C8E70C /* HomeViewController.swift */,
+				0932BC24298811EE007E2324 /* Base */,
 				094D701B2973618200525E2B /* Cell */,
+				094D701C2973626400525E2B /* Lists */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -383,9 +426,10 @@
 				096F18BF297D9292004A5740 /* Cell.swift in Sources */,
 				094D7012296B7F4F00525E2B /* CellContentView.swift in Sources */,
 				09FB2E39296B4B3200C8E70C /* ListViewModel.swift in Sources */,
-				09FB2E3C296B4BD200C8E70C /* ListViewController.swift in Sources */,
+				09FB2E3C296B4BD200C8E70C /* HomeViewController.swift in Sources */,
 				09133B162974E7CD00598F91 /* DiffableDataSourceTableViewController.swift in Sources */,
 				09133B182974E92800598F91 /* SectionModel.swift in Sources */,
+				0932BC2629881506007E2324 /* CollectionBaseViewController.swift in Sources */,
 				094D7018296CEA5400525E2B /* TableListCell.swift in Sources */,
 				094D700E296B52DA00525E2B /* ListFlavor.swift in Sources */,
 				09133B1A297C309B00598F91 /* CollectionListDefaultCellViewController.swift in Sources */,

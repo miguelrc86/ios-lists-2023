@@ -7,17 +7,11 @@
 
 import UIKit
 
-final class CollectionListDefaultCellViewController: UIViewController {
+final class CollectionListDefaultCellViewController: CollectionBaseViewController {
 
     // MARK: - Properties
 
-    private lazy var collectionView: UICollectionView = {
-        var collectionConfiguration = UICollectionLayoutListConfiguration(appearance: .plain)
-        let collectionLayout = UICollectionViewCompositionalLayout.list(using: collectionConfiguration)
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
-    }()
+    override var showSeparators: Bool { true }
 
     private var viewModel: ViewModel {
         didSet {
@@ -59,25 +53,8 @@ final class CollectionListDefaultCellViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        setupLayout()
         configureDataSource()
         configureSnapShot()
-    }
-
-    // MARK: - UI Setup
-
-    private func setupUI() {
-        view.addSubview(collectionView)
-    }
-
-    private func setupLayout() {
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        ])
     }
 
     // MARK: - Diffable DataSource

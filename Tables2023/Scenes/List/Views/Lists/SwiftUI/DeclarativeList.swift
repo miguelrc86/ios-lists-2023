@@ -13,7 +13,7 @@ struct DeclarativeList: View {
 
     var body: some View {
         List(viewModel.allItems, id: \.self) { item in
-            Cell(model: item)                
+            Cell(model: item)
         }
         .listStyle(.plain)
     }
