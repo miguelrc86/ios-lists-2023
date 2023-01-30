@@ -13,7 +13,6 @@ struct Cell: View {
 
     var body: some View {
         horizontalContainer
-        separator
     }
 
     private var horizontalContainer: some View {
@@ -21,17 +20,20 @@ struct Cell: View {
             Image(systemName: "pencil.circle")
                 .foregroundColor(Color(uiColor: model.iconColor))
             Text(model.description)
+                .alignmentGuide(.listRowSeparatorLeading) { d in
+                    d[.leading]
+                }
             Spacer()
         }
-        .padding([.leading, .top, .trailing], 12)
-        .padding(.bottom, 4)
+        .alignmentGuide(.listRowSeparatorTrailing) { d in
+            d[.listRowSeparatorTrailing]
+        }
+        .listRowInsets(EdgeInsets(
+            top: 12, leading: 12, bottom: 12, trailing: 12)
+        )
+        .listRowSeparatorTint(Color.gray.opacity(0.4))
     }
 
-    private var separator: some View {
-        Divider()
-            .background(Color.gray.grayscale(0.2))
-            .padding(.init(top: 0, leading: 44, bottom: 0, trailing: 12))
-    }
 }
 
 struct Cell_Previews: PreviewProvider {

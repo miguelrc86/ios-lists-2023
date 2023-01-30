@@ -36,7 +36,7 @@ final class CellContentView: UIView {
 
     private lazy var separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = .systemGray4
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -72,7 +72,7 @@ final class CellContentView: UIView {
             separatorView.leadingAnchor.constraint(equalTo: headlineLabel.leadingAnchor),
             separatorView.bottomAnchor.constraint(equalTo: bottomAnchor),
             separatorView.trailingAnchor.constraint(equalTo: headlineLabel.trailingAnchor),
-            separatorView.heightAnchor.constraint(equalToConstant: 1)
+            separatorView.heightAnchor.constraint(equalToConstant: 0.3)
         ])
     }
 

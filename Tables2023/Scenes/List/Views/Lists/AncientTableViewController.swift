@@ -73,13 +73,13 @@ extension AncientTableViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = viewModel.item(at: indexPath.row)
+        let item = viewModel.item(at: indexPath.row)
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableListCell.reuseIdentifier) as? TableListCell else {
             return .init()
         }
 
-        model.map { cell.configure(model: .init(iconColor: .blue, description: $0)) }
+        item.map { cell.configure(model: $0) }
         return cell
     }
 

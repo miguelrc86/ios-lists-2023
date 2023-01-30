@@ -5,8 +5,9 @@
 //  Created by Miguel Rojas Cortes on 1/8/23.
 //
 
-import UIKit
 import Combine
+import SwiftUI
+import UIKit
 
 final class ListViewController: UIViewController {
 
@@ -29,8 +30,6 @@ final class ListViewController: UIViewController {
     }()
 
     private var cancellable: AnyCancellable?
-
-    var viewModel: ViewModel = ListViewModel()
 
     // MARK: - Life Cycle
 
@@ -75,6 +74,8 @@ final class ListViewController: UIViewController {
     // MARK: - Actions
 
     private func swapToListType(_ type: ListFlavor) {
+        let viewModel = ListViewModel(flavor: type)
+
         switch type {
         case .stackedList:
             let stackVC = StackedListViewController()
@@ -102,6 +103,9 @@ final class ListViewController: UIViewController {
             updateChildViewController(viewController: collectionListHostingConfigurationCellVC)
             navigationItem.prompt = "- CollectionView List | UIHostingConfiguration Cell -"
         case .swiftUIList:
+            let listView = DeclarativeList(viewModel: viewModel)
+            let hostingController = UIHostingController(rootView: listView)
+            updateChildViewController(viewController: hostingController)
             navigationItem.prompt = "- SwiftUI List -"
         }
     }

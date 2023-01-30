@@ -72,10 +72,10 @@ final class StackedListViewController: UIViewController {
 
     // MARK: - Configuration
 
-    func configure(with model: [String]) {
-        model.forEach { headline in
+    func configure(with model: [CellModel]) {
+        model.forEach { item in
             let cellContent = CellContentView()
-            cellContent.configure(with: .init(iconColor: .red, description: headline))
+            cellContent.configure(with: item)
             itemsStackView.addArrangedSubview(cellContent)
         }
     }

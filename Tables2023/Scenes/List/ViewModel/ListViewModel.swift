@@ -5,17 +5,18 @@
 //  Created by Miguel Rojas Cortes on 1/8/23.
 //
 
-import Foundation
+import UIKit
 
 protocol ViewModel {
-    var allItems: [String] { get }
+    var allItems: [CellModel] { get }
     var numberOfRows: Int { get }
-    func item(at index: Int) -> String?
+    func item(at index: Int) -> CellModel?
 }
 
 struct ListViewModel {
 
-    let model = [
+    let flavor: ListFlavor
+    let rawModel = [
         "There is evidence of microbial life on several moons in our solar system.",
         "The conditions necessary for life may be common throughout the universe.",
         "There have been several reported sightings of UFOs.",
@@ -41,16 +42,35 @@ struct ListViewModel {
 
 extension ListViewModel: ViewModel {
 
-    var allItems: [String] {
-        model
+    var allItems: [CellModel] {
+        rawModel.map { CellModel(iconColor: color(), description: $0) }
     }
 
     var numberOfRows: Int {
-        model.count
+        rawModel.count
     }
 
-    func item(at index: Int) -> String? {
-        guard 0...model.count ~= index else { return nil }
-        return model[index]
+    func item(at index: Int) -> CellModel? {
+        guard 0...rawModel.count ~= index else { return nil }
+        return CellModel(iconColor: color(), description: rawModel[index])
+    }
+
+    private func color() -> UIColor {
+        switch flavor {
+        case .stackedList:
+            return .systemRed
+        case .ancientTableView:
+            return .systemGreen
+        case .diffableDataSourceTableView:
+            return .systemBlue
+        case .collectionViewListDefaultCell:
+            return .systemYellow
+        case .collectionViewListCustomCell:
+            return .systemOrange
+        case .uiHostingConfiguration:
+            return .systemBrown
+        case .swiftUIList:
+            return .black
+        }
     }
 }

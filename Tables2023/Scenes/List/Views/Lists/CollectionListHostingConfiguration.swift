@@ -14,7 +14,9 @@ final class CollectionListHostingConfigurationCellViewController: UIViewControll
 
     private lazy var collectionView: UICollectionView = {
         var collectionConfiguration = UICollectionLayoutListConfiguration(appearance: .plain)
-        collectionConfiguration.showsSeparators = false
+        var separatorConfiguration = UIListSeparatorConfiguration(listAppearance: .plain)
+        separatorConfiguration.color = .systemGray4
+        collectionConfiguration.separatorConfiguration = separatorConfiguration
         let collectionLayout = UICollectionViewCompositionalLayout.list(using: collectionConfiguration)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,7 +36,7 @@ final class CollectionListHostingConfigurationCellViewController: UIViewControll
     private lazy var defaultCellRegistry: UICollectionView.CellRegistration<UICollectionViewListCell, CellModel> = {
         UICollectionView.CellRegistration<UICollectionViewListCell, CellModel> { cell, indexPath, model in
             let hostingConfiguration = UIHostingConfiguration { Cell(model: model) }
-            cell.contentConfiguration = hostingConfiguration.margins(.all, 0)
+            cell.contentConfiguration = hostingConfiguration.margins(.all, 12)
         }
     }()
 
@@ -64,7 +66,7 @@ final class CollectionListHostingConfigurationCellViewController: UIViewControll
     private func setupUI() {
         view.addSubview(collectionView)
     }
-
+    
     private func setupLayout() {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -86,8 +88,8 @@ final class CollectionListHostingConfigurationCellViewController: UIViewControll
 
     private func configureSnapShot() {
         guard var snapshot = dataSource?.snapshot() else { return }
-        snapshot.appendSections([SectionModel.main])
-        snapshot.appendItems(viewModel.allItems.map { .init(iconColor: .systemBrown, description: $0) })
+        snapshot.appendSections([.main])
+        snapshot.appendItems(viewModel.allItems)
 
         dataSource?.apply(snapshot)
     }

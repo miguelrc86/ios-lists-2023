@@ -28,6 +28,7 @@
 		096F18BB297D8C00004A5740 /* CollectionListCustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F18BA297D8C00004A5740 /* CollectionListCustomCellViewController.swift */; };
 		096F18BD297D8E1C004A5740 /* CollectionListHostingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F18BC297D8E1C004A5740 /* CollectionListHostingConfiguration.swift */; };
 		096F18BF297D9292004A5740 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F18BE297D9292004A5740 /* Cell.swift */; };
+		096F18C129856DDD004A5740 /* DeclarativeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F18C029856DDD004A5740 /* DeclarativeList.swift */; };
 		09FB2E39296B4B3200C8E70C /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FB2E38296B4B3200C8E70C /* ListViewModel.swift */; };
 		09FB2E3C296B4BD200C8E70C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FB2E3B296B4BD200C8E70C /* ListViewController.swift */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		096F18BA297D8C00004A5740 /* CollectionListCustomCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListCustomCellViewController.swift; sourceTree = "<group>"; };
 		096F18BC297D8E1C004A5740 /* CollectionListHostingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListHostingConfiguration.swift; sourceTree = "<group>"; };
 		096F18BE297D9292004A5740 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		096F18C029856DDD004A5740 /* DeclarativeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclarativeList.swift; sourceTree = "<group>"; };
 		09FB2E38296B4B3200C8E70C /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		09FB2E3B296B4BD200C8E70C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 				09133B19297C309B00598F91 /* CollectionListDefaultCellViewController.swift */,
 				096F18BA297D8C00004A5740 /* CollectionListCustomCellViewController.swift */,
 				096F18BC297D8E1C004A5740 /* CollectionListHostingConfiguration.swift */,
+				096F18C029856DDD004A5740 /* DeclarativeList.swift */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				0962B395296B43DD00457F09 /* SceneDelegate.swift in Sources */,
 				09133B1C297C343E00598F91 /* CollectionListCell.swift in Sources */,
 				096F18BD297D8E1C004A5740 /* CollectionListHostingConfiguration.swift in Sources */,
+				096F18C129856DDD004A5740 /* DeclarativeList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

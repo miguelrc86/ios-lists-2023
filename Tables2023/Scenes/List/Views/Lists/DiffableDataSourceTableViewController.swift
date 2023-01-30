@@ -77,8 +77,8 @@ final class DiffableDataSourceTableViewController: UIViewController {
 
     private func configureSnapShot() {
         guard var snapshot = dataSource?.snapshot() else { return }
-        snapshot.appendSections([SectionModel.main])
-        snapshot.appendItems(viewModel.allItems.map { .init(iconColor: .systemYellow, description: $0) })
+        snapshot.appendSections([.main])
+        snapshot.appendItems(viewModel.allItems)
 
         dataSource?.apply(snapshot)
     }
