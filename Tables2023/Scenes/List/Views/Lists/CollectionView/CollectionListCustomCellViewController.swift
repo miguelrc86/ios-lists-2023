@@ -11,13 +11,13 @@ final class CollectionListCustomCellViewController: CollectionBaseViewController
 
     // MARK: - Properties
 
-    private var viewModel: ViewModel {
-        didSet {
-            configureSnapShot()
-        }
-    }
-
     private var dataSource: UICollectionViewDiffableDataSource<SectionModel, CellModel>?
+
+    // MARK: - Overrides
+
+    override func reloadData() {
+        configureSnapShot()
+    }
 
     // MARK: - Cell Registration
 
@@ -26,17 +26,6 @@ final class CollectionListCustomCellViewController: CollectionBaseViewController
             cell.configure(model: model)
         }
     }()
-
-    // MARK: - Initializer
-
-    init(viewModel: ViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("View initialization not supported from Xib")
-    }
 
     // MARK: - Life Cycle
 

@@ -78,8 +78,7 @@ final class HomeViewController: UIViewController {
 
         switch type {
         case .stackedList:
-            let stackVC = StackedListViewController()
-            stackVC.configure(with: viewModel.allItems)
+            let stackVC = StackedListViewController(viewModel: viewModel)
             updateChildViewController(viewController: stackVC)
             navigationItem.prompt = "- Stacked List -"
         case .ancientTableView:

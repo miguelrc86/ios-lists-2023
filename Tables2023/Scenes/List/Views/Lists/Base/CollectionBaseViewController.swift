@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionBaseViewController: UIViewController {
+class CollectionBaseViewController: BaseViewController {
 
     // MARK: - Properties
 

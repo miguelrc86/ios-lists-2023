@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class StackedListViewController: UIViewController {
+final class StackedListViewController: BaseViewController {
 
     // MARK: - Properties
 
@@ -32,12 +32,10 @@ final class StackedListViewController: UIViewController {
         return stackView
     }()
 
-    // MARK: - Initializers
+    // MARK: - Overrides
 
-    init() { super.init(nibName: nil, bundle: nil) }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func reloadData() {
+        configure(with: viewModel.allItems)
     }
 
     // MARK: - Life Cycle
@@ -46,6 +44,7 @@ final class StackedListViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupConstraints()
+        configure(with: viewModel.allItems)
     }
 
     // MARK: - UI Setup
@@ -72,7 +71,7 @@ final class StackedListViewController: UIViewController {
 
     // MARK: - Configuration
 
-    func configure(with model: [CellModel]) {
+    private func configure(with model: [CellModel]) {
         model.forEach { item in
             let cellContent = CellContentView()
             cellContent.configure(with: item)

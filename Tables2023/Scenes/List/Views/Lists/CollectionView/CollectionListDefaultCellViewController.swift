@@ -11,15 +11,15 @@ final class CollectionListDefaultCellViewController: CollectionBaseViewControlle
 
     // MARK: - Properties
 
+    private var dataSource: UICollectionViewDiffableDataSource<SectionModel, CellModel>?
+
+    // MARK: - Overrides
+
     override var showSeparators: Bool { true }
 
-    private var viewModel: ViewModel {
-        didSet {
-            configureSnapShot()
-        }
+    override func reloadData() {
+        configureSnapShot()
     }
-
-    private var dataSource: UICollectionViewDiffableDataSource<SectionModel, CellModel>?
 
     // MARK: - Cell Registration
 
@@ -28,7 +28,7 @@ final class CollectionListDefaultCellViewController: CollectionBaseViewControlle
             var configuration = cell.defaultContentConfiguration()
             let image = UIImage(systemName: "pencil.circle")
             configuration.image = image
-            configuration.imageProperties.tintColor = .black
+            configuration.imageProperties.tintColor = model.iconColor
             configuration.imageProperties.maximumSize = CGSize(width: 20, height: 20)
             configuration.text = model.description
             configuration.axesPreservingSuperviewLayoutMargins = .vertical
@@ -37,17 +37,6 @@ final class CollectionListDefaultCellViewController: CollectionBaseViewControlle
             cell.contentConfiguration = configuration
         }
     }()
-
-    // MARK: - Initializer
-
-    init(viewModel: ViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("View initialization not supported from Xib")
-    }
 
     // MARK: - Life Cycle
 

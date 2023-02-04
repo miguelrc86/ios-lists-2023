@@ -12,15 +12,15 @@ final class CollectionListHostingConfigurationCellViewController: CollectionBase
 
     // MARK: - Properties
 
+    private var dataSource: UICollectionViewDiffableDataSource<SectionModel, CellModel>?
+
+    // MARK: - Overrides
+
     override var showSeparators: Bool { true }
 
-    private var viewModel: ViewModel {
-        didSet {
-            configureSnapShot()
-        }
+    override func reloadData() {
+        configureSnapShot()
     }
-
-    private var dataSource: UICollectionViewDiffableDataSource<SectionModel, CellModel>?
 
     // MARK: - Cell Registration
 
@@ -30,17 +30,6 @@ final class CollectionListHostingConfigurationCellViewController: CollectionBase
             cell.contentConfiguration = hostingConfiguration.margins(.all, 12)
         }
     }()
-
-    // MARK: - Initializer
-
-    init(viewModel: ViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("View initialization not supported from Xib")
-    }
 
     // MARK: - Life Cycle
 
