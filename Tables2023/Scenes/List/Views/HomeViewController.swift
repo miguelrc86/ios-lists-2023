@@ -31,6 +31,11 @@ final class HomeViewController: UIViewController {
 
     private var cancellable: AnyCancellable?
 
+    private lazy var navigateToDetailView: (String) -> Void = { [unowned self] text in
+        let hostingDetailViewController = UIHostingController(rootView: ListDetail(text: text))
+        self.navigationController?.pushViewController(hostingDetailViewController, animated: true)
+    }
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -42,7 +47,7 @@ final class HomeViewController: UIViewController {
     // MARK: - UI Setup
 
     private func setupUI() {
-        title = "Lists Flavors"
+        title = "Home"
         view.addSubview(segmentedControl)
         view.addSubview(containerView)
         layoutConstraints()
@@ -82,23 +87,38 @@ final class HomeViewController: UIViewController {
             updateChildViewController(viewController: stackVC)
             navigationItem.prompt = "- Stacked List -"
         case .ancientTableView:
-            let ancientTVC = AncientTableViewController(viewModel: viewModel)
+            let ancientTVC = AncientTableViewController(
+                viewModel: viewModel,
+                action: navigateToDetailView
+            )
             updateChildViewController(viewController: ancientTVC)
             navigationItem.prompt = "- Standard TableView | Default DataSource -"
         case .diffableDataSourceTableView:
-            let diffableDataSourceVC = DiffableDataSourceTableViewController(viewModel: viewModel)
+            let diffableDataSourceVC = DiffableDataSourceTableViewController(
+                viewModel: viewModel,
+                action: navigateToDetailView
+            )
             updateChildViewController(viewController: diffableDataSourceVC)
             navigationItem.prompt = "- Standard TableView | Diffable DataSource -"
         case .collectionViewListDefaultCell:
-            let collectionListDefaultCellVC = CollectionListDefaultCellViewController(viewModel: viewModel)
+            let collectionListDefaultCellVC = CollectionListDefaultCellViewController(
+                viewModel: viewModel,
+                action: navigateToDetailView
+            )
             updateChildViewController(viewController: collectionListDefaultCellVC)
             navigationItem.prompt = "- CollectionView List | Default Cell -"
         case .collectionViewListCustomCell:
-            let collectionListCustomCellVC = CollectionListCustomCellViewController(viewModel: viewModel)
+            let collectionListCustomCellVC = CollectionListCustomCellViewController(
+                viewModel: viewModel,
+                action: navigateToDetailView
+            )
             updateChildViewController(viewController: collectionListCustomCellVC)
             navigationItem.prompt = "- CollectionView List | Custom Cell -"
         case .uiHostingConfiguration:
-            let collectionListHostingConfigurationCellVC = CollectionListHostingConfigurationCellViewController(viewModel: viewModel)
+            let collectionListHostingConfigurationCellVC = CollectionListHostingConfigurationCellViewController(
+                viewModel: viewModel,
+                action: navigateToDetailView
+            )
             updateChildViewController(viewController: collectionListHostingConfigurationCellVC)
             navigationItem.prompt = "- CollectionView List | UIHostingConfiguration Cell -"
         case .swiftUIList:

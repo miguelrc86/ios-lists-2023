@@ -49,6 +49,7 @@ class TableBaseViewController: BaseViewController {
 extension TableBaseViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, performPrimaryActionForRowAt indexPath: IndexPath) {
-        action?()
+        guard let item = viewModel.item(at: indexPath.row) else { return }
+        action?(item.description)
     }
 }

@@ -16,11 +16,14 @@ class BaseViewController: UIViewController {
             reloadData()
         }
     }
+
+    var action: ((String) -> Void)?
     
     // MARK: - Initializers
-    
-    init(viewModel: ViewModel) {
+
+    init(viewModel: ViewModel, action: ((String) -> Void)? = nil) {
         self.viewModel = viewModel
+        self.action = action
         super.init(nibName: nil, bundle: nil)
     }
     

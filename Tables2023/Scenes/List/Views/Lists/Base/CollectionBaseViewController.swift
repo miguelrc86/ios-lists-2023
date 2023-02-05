@@ -43,6 +43,7 @@ class CollectionBaseViewController: BaseViewController {
     
     private func setupUI() {
         view.addSubview(collectionView)
+        collectionView.delegate = self
     }
 
     private func setupLayout() {
@@ -52,6 +53,15 @@ class CollectionBaseViewController: BaseViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+    }
+
+}
+
+extension CollectionBaseViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, performPrimaryActionForItemAt indexPath: IndexPath) {
+        guard let item = viewModel.item(at: indexPath.row) else { return }
+        action?(item.description)
     }
 
 }
