@@ -7,44 +7,22 @@
 
 import UIKit
 
-final class DiffableDataSourceTableViewController: UITableViewController {
+final class DiffableDataSourceTableViewController: TableBaseViewController {
 
-    // MARK: - Properties
+    // MARK: - Overrides
 
-    private var viewModel: ViewModel {
-        didSet {
-            configureSnapShot()
-        }
+    override func reloadData() {
+        configureSnapShot()
     }
 
     private var dataSource: UITableViewDiffableDataSource<SectionModel, CellModel>?
-
-    // MARK: - Initializer
-
-    init(viewModel: ViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("View initialization not supported from Xib")
-    }
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
         configureDataSource()
         configureSnapShot()
-    }
-
-    // MARK: - UI Setup
-
-    private func setupUI() {
-        tableView.separatorStyle = .none
-        tableView.register(TableListCell.self,
-                           forCellReuseIdentifier: TableListCell.reuseIdentifier)
     }
 
     // MARK: - Diffable DataSource

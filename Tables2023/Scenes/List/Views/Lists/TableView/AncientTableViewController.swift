@@ -7,54 +7,33 @@
 
 import UIKit
 
-final class AncientTableViewController: UITableViewController {
+final class AncientTableViewController: TableBaseViewController {
 
-    // MARK: - Properties
+    // MARK: - Overrides
 
-    private var viewModel: ViewModel {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-
-    // MARK: - Initializer
-
-    init(viewModel: ViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("View initialization not supported from Xib")
-    }
-
-    // MARK: - Life Cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupUI()
+    override func reloadData() {
         tableView.reloadData()
     }
 
-    // MARK: - UI Setup
-
-    private func setupUI() {
-        tableView.separatorStyle = .none
-        tableView.register(TableListCell.self,
-                           forCellReuseIdentifier: TableListCell.reuseIdentifier)
+    // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.reloadData()
     }
 
 }
 
 // MARK: - UITableViewDataSource
 
-extension AncientTableViewController {
+extension AncientTableViewController: UITableViewDataSource {
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.numberOfRows
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = viewModel.item(at: indexPath.row)
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableListCell.reuseIdentifier) as? TableListCell else {
