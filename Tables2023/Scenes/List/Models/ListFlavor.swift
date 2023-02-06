@@ -16,6 +16,7 @@ enum ListFlavor: Int, CaseIterable {
     case collectionViewListCustomCell
     case uiHostingConfiguration
     case swiftUIList
+    case swiftUIForEachList
     
     static var rawValues: [String] {
         allCases.map { $0.rawValue.description }

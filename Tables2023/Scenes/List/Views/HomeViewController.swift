@@ -122,10 +122,15 @@ final class HomeViewController: UIViewController {
             updateChildViewController(viewController: collectionListHostingConfigurationCellVC)
             navigationItem.prompt = "- CollectionView List | UIHostingConfiguration Cell -"
         case .swiftUIList:
-            let listView = DeclarativeList(viewModel: viewModel)
+            let listView = DefaultList(viewModel: viewModel)
             let hostingController = UIHostingController(rootView: listView)
             updateChildViewController(viewController: hostingController)
             navigationItem.prompt = "- SwiftUI List -"
+        case .swiftUIForEachList:
+            let forEacListView = ForEachList(viewModel: viewModel)
+            let hostingController = UIHostingController(rootView: forEacListView)
+            updateChildViewController(viewController: hostingController)
+            navigationItem.prompt = "- SwiftUI List | ForEach -"
         }
     }
 

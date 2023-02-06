@@ -71,6 +71,8 @@ extension ListViewModel: ViewModel {
             return .systemBrown
         case .swiftUIList:
             return .black
+        case .swiftUIForEachList:
+            return .systemGray
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  DeclarativeList.swift
+//  DefaultList.swift
 //  Tables2023
 //
 //  Created by Miguel Rojas Cortes on 1/28/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DeclarativeList: View {
+struct DefaultList: View {
 
     @State var viewModel: ViewModel
 
@@ -23,6 +23,6 @@ struct DeclarativeList: View {
 
 struct List_Previews: PreviewProvider {
     static var previews: some View {
-        DeclarativeList(viewModel: ListViewModel(flavor: .swiftUIList))
+        DefaultList(viewModel: ListViewModel(flavor: .swiftUIList))
     }
 }

@@ -7,7 +7,8 @@
 
 import UIKit
 
-struct CellModel: Hashable {
+struct CellModel: Hashable, Identifiable {
+    let id = UUID()
     let iconColor: UIColor
     let description: String
 }
