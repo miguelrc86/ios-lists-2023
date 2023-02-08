@@ -24,7 +24,7 @@ final class CollectionListHostingConfigurationCellViewController: CollectionBase
 
     // MARK: - Cell Registration
 
-    private lazy var defaultCellRegistry: UICollectionView.CellRegistration<UICollectionViewListCell, CellModel> = {
+    private lazy var hostedConfiguredCellRegistry: UICollectionView.CellRegistration<UICollectionViewListCell, CellModel> = {
         UICollectionView.CellRegistration<UICollectionViewListCell, CellModel> { cell, indexPath, model in
             let hostingConfiguration = UIHostingConfiguration { Cell(model: model) }
             cell.contentConfiguration = hostingConfiguration.margins(.all, 12)
@@ -42,7 +42,7 @@ final class CollectionListHostingConfigurationCellViewController: CollectionBase
     // MARK: - Diffable DataSource
 
     private func configureDataSource() {
-        let registeredCell = defaultCellRegistry
+        let registeredCell = hostedConfiguredCellRegistry
 
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, model in
             collectionView.dequeueConfiguredReusableCell(using: registeredCell, for: indexPath, item: model)
